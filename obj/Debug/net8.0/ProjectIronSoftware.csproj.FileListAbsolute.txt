@@ -12,3 +12,4 @@ D:\ProjectIronSoftware\obj\Debug\net8.0\refint\ProjectIronSoftware.dll
 D:\ProjectIronSoftware\obj\Debug\net8.0\ProjectIronSoftware.pdb
 D:\ProjectIronSoftware\obj\Debug\net8.0\ProjectIronSoftware.genruntimeconfig.cache
 D:\ProjectIronSoftware\obj\Debug\net8.0\ref\ProjectIronSoftware.dll
+D:\ProjectIronSoftware\obj\Debug\net8.0\ProjectIronSoftware.sourcelink.json
