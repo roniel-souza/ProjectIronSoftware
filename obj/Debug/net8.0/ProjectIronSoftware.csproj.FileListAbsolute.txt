@@ -1,0 +1,14 @@
+D:\ProjectIronSoftware\obj\Debug\net8.0\ProjectIronSoftware.GeneratedMSBuildEditorConfig.editorconfig
+D:\ProjectIronSoftware\obj\Debug\net8.0\ProjectIronSoftware.AssemblyInfoInputs.cache
+D:\ProjectIronSoftware\obj\Debug\net8.0\ProjectIronSoftware.AssemblyInfo.cs
+D:\ProjectIronSoftware\obj\Debug\net8.0\ProjectIronSoftware.csproj.CoreCompileInputs.cache
+D:\ProjectIronSoftware\bin\Debug\net8.0\ProjectIronSoftware.exe
+D:\ProjectIronSoftware\bin\Debug\net8.0\ProjectIronSoftware.deps.json
+D:\ProjectIronSoftware\bin\Debug\net8.0\ProjectIronSoftware.runtimeconfig.json
+D:\ProjectIronSoftware\bin\Debug\net8.0\ProjectIronSoftware.dll
+D:\ProjectIronSoftware\bin\Debug\net8.0\ProjectIronSoftware.pdb
+D:\ProjectIronSoftware\obj\Debug\net8.0\ProjectIronSoftware.dll
+D:\ProjectIronSoftware\obj\Debug\net8.0\refint\ProjectIronSoftware.dll
+D:\ProjectIronSoftware\obj\Debug\net8.0\ProjectIronSoftware.pdb
+D:\ProjectIronSoftware\obj\Debug\net8.0\ProjectIronSoftware.genruntimeconfig.cache
+D:\ProjectIronSoftware\obj\Debug\net8.0\ref\ProjectIronSoftware.dll
