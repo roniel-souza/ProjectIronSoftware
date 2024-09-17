@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProjectIronSoftware")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+421a686164506e2e1b7dabe728c6d27a2df882af")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77db0d36e9c2c8e0a6e1604a100f1274ea6d3780")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProjectIronSoftware")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProjectIronSoftware")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
