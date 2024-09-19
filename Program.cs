@@ -1,74 +1,77 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
-public class OldPhone
+public class KeyPadToNumber
 {
-    public static string ConvertKeypadToText(string keypadSequence)
+    private static readonly Dictionary<char, object> CharactersMap = new Dictionary<char, object>()
     {
-        if (string.IsNullOrEmpty(keypadSequence))
+        { '1', new[] { '&', '\'', '(' } },
+        { '2', new[] { 'A', 'B', 'C' } },
+        { '3', new[] { 'D', 'E', 'F' } },
+        { '4', new[] { 'G', 'H', 'I' } },
+        { '5', new[] { 'J', 'K', 'L' } },
+        { '6', new[] { 'M', 'N', 'O' } },
+        { '7', new[] { 'P', 'Q', 'R', 'S' } },
+        { '8', new[] { 'T', 'U', 'V' } },
+        { '9', new[] { 'W', 'X', 'Y', 'Z' } },
+        { '0', new[] { ' ' } },
+        { ' ', (string result) => result },
+        { '#', (string result) => result },
+        { '*', (string result) => result.Substring(0, result.Length - 1) }
+    };
+
+    private static string ExecuteInputButton(string text, char character, int pressed)
+    {
+        if (CharactersMap[character] is char[] keypad)
         {
-            return string.Empty;
+            return $"{text}{keypad[pressed]}";
         }
 
-        var keypadMapping = new Dictionary<char, string>
-        {
-            {'2', "ABC"},
-            {'3', "DEF"},
-            {'4', "GHI"},
-            {'5', "JKL"},
-            {'6', "MNO"},
-            {'7', "PQRS"},
-            {'8', "TUV"},
-            {'9', "WXYZ"}
-        };
-
-        var result = new StringBuilder();
-        char lastDigit = '\0';
-        int repeatCount = 0;
-
-        foreach (char digit in keypadSequence)
-        {
-            if (digit == '#')
-            {
-                if (lastDigit != '\0' && repeatCount > 0)
-                {
-                    result.Append(GetLetterFromRepeatCount(keypadMapping, lastDigit, repeatCount));
-                }
-                break;
-            }
-            else if (digit == '*')
-            {
-                if (result.Length > 0)
-                {
-                    result.Length--;
-                }
-            }
-            else if (keypadMapping.ContainsKey(digit))
-            {
-                if (digit == lastDigit)
-                {
-                    repeatCount++;
-                }
-                else
-                {
-                    if (lastDigit != '\0' && repeatCount > 0)
-                    {
-                        result.Append(GetLetterFromRepeatCount(keypadMapping, lastDigit, repeatCount));
-                    }
-                    lastDigit = digit;
-                    repeatCount = 1;
-                }
-            }
-        }
-
-        return result.ToString();
+        var keypadFunction = (Func<string, string>)CharactersMap[character];
+        return keypadFunction(text);
     }
 
-    private static char GetLetterFromRepeatCount(IReadOnlyDictionary<char, string> keypadMapping, char digit, int repeatCount)
+    public static string ConvertKeyPadInput(string input)
     {
-        var letters = keypadMapping[digit];
-        var index = (repeatCount - 1) % letters.Length;
-        return letters[index];
+        var finalText = "";
+        var indexCount = -1;
+        var lastCharacter = '\0';
+
+        foreach (var currentCharacter in input)
+        {
+            if (currentCharacter == lastCharacter)
+            {
+                indexCount++;
+                continue;
+            }
+
+            if (indexCount > -1)
+            {
+                finalText = ExecuteInputButton(finalText, lastCharacter, indexCount);
+            }
+
+            lastCharacter = currentCharacter;
+            indexCount = 0;
+        }
+
+        return finalText;
+    }
+
+    public static void Main()
+    {
+        var input1 = "33#";
+        var input2 = "227*#";
+        var input3 = "4433555 555666096667775553#";
+        var input4 = "44*33*22#";
+        var input5 = "#";
+        var input6 = "222 2 22#";
+
+        Console.WriteLine($"Input: \"{input1}\"\nResult: {ConvertKeyPadInput(input1)}\n");
+        Console.WriteLine($"Input: \"{input2}\"\nResult: {ConvertKeyPadInput(input2)}\n");
+        Console.WriteLine($"Input: \"{input3}\"\nResult: {ConvertKeyPadInput(input3)}\n");
+        Console.WriteLine($"Input: \"{input4}\"\nResult: {ConvertKeyPadInput(input4)}\n");
+        Console.WriteLine($"Input: \"{input5}\"\nResult: {ConvertKeyPadInput(input5)}\n");
+        Console.WriteLine($"Input: \"{input6}\"\nResult: {ConvertKeyPadInput(input6)}\n");
     }
 }
